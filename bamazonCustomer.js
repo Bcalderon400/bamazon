@@ -13,4 +13,13 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
     if (err) throw err;
     console.log("connected")
+    start();
 })
+
+function start() {
+    connection.query("SELECT * FROM products", function(err, res) {
+        if (err) throw err;
+        console.log(res)
+        connection.end()
+    })
+}
