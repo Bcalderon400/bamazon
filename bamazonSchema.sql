@@ -4,25 +4,25 @@ CREATE DATABASE bamazon_DB;
 USE bamazon_DB;
 
 CREATE TABLE products(
-item_id INT NOT NULL AUTO_INCREMENT,
-stickers VARCHAR(45) NULL,
+item_id INT(4) NOT NULL,
+product_name VARCHAR(45) NULL,
 department_name VARCHAR(45) NULL,
 price DECIMAL(10,2) NULL,
 stock_quantity INT NULL,
 PRIMARY KEY (item_id)
 );
 
-INSERT INTO products (stickers, department_name, price, stock_quantity )
-VALUES ("Star", "School Supplies", 1.00, 150),
- ("Poop", "School Supplies", 2.00, 550),
- ("Pickle", "School Supplies", 1.50, 50),
- ("Smiley", "School Supplies", 0.75, 450),
- ("Sad", "School Supplies", 1.00, 250),
- ("Happy", "School Supplies", 1.25, 350),
- ("Crying", "School Supplies", 1.50, 75),
- ("The Finger", "School Supplies", 3.00, 25),
- ("LOL", "School Supplies", 1.50, 550),
- ("Scary", "School Supplies", 1.00, 25);
+INSERT INTO products (item_id, product_name, department_name, price, stock_quantity) 
+VALUES  (101, "boots", "soccer", 79.99, 20),
+	   (212, "jerseys", "basketball", 99.99, 10),
+	   (313, "helmet", "football", 29.99, 5),
+	   (420, "sweater", "hockey", 129.99, 14),
+	   (504, "pants", "football", 39.99, 15),
+	   (619, "shorts", "soccer", 19.99, 19),
+	   (720, "gloves", "baseball", 49.99, 11),
+	   (808, "bats", "baseball", 69.99, 10),
+	   (913, "pucks", "hockey", 9.99, 19),
+	   (1009, "shoes", "basketball", 89.99, 17)
 
 
 SELECT * FROM products;
