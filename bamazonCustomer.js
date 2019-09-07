@@ -52,7 +52,24 @@ function purchasePrompt() {
     ]).then(function(answers) {
         var quantityNeeded = answers.Quantity
         var IDrequested = answers.ID
-            // purchaseOrder(IDrequested, quantityNeeded)
+        purchaseOrder(IDrequested, quantityNeeded)
     })
 }
+
+function purchaseOrder(ID, amtNeeded) {
+    connection.query('Select * FROM products WHERE item_id = ' + ID, function(err, res) {
+        if (err) { console.log(err) };
+        if (amtNeeded <= res[0].stock_quantity) {
+            var totalCost = res[0].price * amtNeeded;
+            console.log("Good news your order is in stock!");
+            console.log("Your total cost for " + amtNeeded + " " + res[0].product_name + " is " + totalCost + " Thank you!");
+
+            connection.query("UPDATE products SET stock_quantity = stock_quantity - " + amtNeeded + "WHERE item_id = " + ID);
+        } else {
+            console.log("Insufficient quantity, sorry we do not have enough " + res[0].product_name + "to complete your order.");
+        };
+        displayProducts();
+    });
+};
+
 displayProducts()
