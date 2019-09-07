@@ -11,6 +11,7 @@ var connection = mysql.createConnection({
     database: "bamazon_DB"
 
 });
+
 connection.connect(function(err) {
     if (err) throw err;
     console.log("connected as id: " + connection.threadId)
@@ -31,7 +32,27 @@ var displayProducts = function() {
             )
         }
         console.log(displayTable.toString())
+        purchasePrompt()
+    })
+}
 
+function purchasePrompt() {
+    inquirer.prompt([{
+            name: "ID",
+            type: "input",
+            message: "Please enter Item ID you like to purchase.",
+            filter: Number
+        },
+        {
+            name: "Quantity",
+            type: "input",
+            message: "How many items do you wish to purchae?",
+            filter: Number
+        },
+    ]).then(function(answers) {
+        var quantityNeeded = answers.Quantity
+        var IDrequested = answers.ID
+            // purchaseOrder(IDrequested, quantityNeeded)
     })
 }
 displayProducts()
