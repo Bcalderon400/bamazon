@@ -7,10 +7,17 @@ Amazon-like storefront that takes in orders from customers and deplete the stock
 
 # PROCESS
 
-1. Start and Display Inventory
+1. Start and Display Inventory.
 
     ![Image of Init.](/images/init.png)
 
+2. Enter Item Id and Quantity.
+
+    ![Image of Init.](/images/questions.png)
+
+3. Stock and Price.
+
+    ![Image of Init.](/images/price.png)
 
 # TECHNOLOGIES USED
 
