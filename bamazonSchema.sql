@@ -5,10 +5,10 @@ USE bamazon_DB;
 
 CREATE TABLE products(
 item_id INT(4) NOT NULL,
-product_name VARCHAR(45) NULL,
-department_name VARCHAR(45) NULL,
-price DECIMAL(10,2) NULL,
-stock_quantity INT NULL,
+product_name VARCHAR(45) NOT NULL,
+department_name VARCHAR(45) NOT NULL,
+price DECIMAL(10,2) NOT NULL,
+stock_quantity INT(20) NOT NULL,
 PRIMARY KEY (item_id)
 );
 
@@ -22,7 +22,7 @@ VALUES  (101, "boots", "soccer", 79.99, 20),
 	   (720, "gloves", "baseball", 49.99, 11),
 	   (808, "bats", "baseball", 69.99, 10),
 	   (913, "pucks", "hockey", 9.99, 19),
-	   (1009, "shoes", "basketball", 89.99, 17)
+	   (1009, "shoes", "basketball", 89.99, 17);
 
 
 SELECT * FROM products;
